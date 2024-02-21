@@ -1,0 +1,244 @@
+#webAppLoader {
+    background-color: var(--bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transition: 5s;
+    animation-fill-mode: forwards;
+    z-index: 9999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: var(--bg-opacity) !important;
+}
+.loadingAnimationPreview{
+    opacity: var(--bg-opacity) !important;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes slideUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideBottom {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: var(--bg-opacity);
+        visibility: visible;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: var(--bg-opacity);
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+@keyframes clipFromCenterStart {
+    0% {
+        transform: scaleY(1);
+    }
+
+    100% {
+        transform: scaleY(0);
+    }
+}
+
+@keyframes clipFromCenterEnd {
+    0% {
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes clipLeftRightStart {
+    0% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes clipLeftRightEnd {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes animatedFullSlideTopBottomStart {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: visible;
+    }
+
+    50% {
+        transform: translateY(0);
+        opacity: var(--bg-opacity);
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes animatedFullSlideBottomTopStart {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    50% {
+        transform: translateY(0);
+        opacity: var(--bg-opacity);
+    }
+
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: visible;
+    }
+} 
+
+
+#webAppLoader img {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+#webAppLoader.slideUp,
+.loadingAnimationPreview.slideUp {
+    animation-fill-mode: forwards;
+    animation: slideUp 0.8s forwards;
+}
+
+#webAppLoader.slideDown,
+.loadingAnimationPreview.slideDown {
+    animation: slideDown 0.8s forwards;
+}
+
+#webAppLoader.slideBottom,
+.loadingAnimationPreview.slideBottom {
+    animation-fill-mode: forwards;
+    animation: slideBottom 0.8s forwards;
+}
+
+#webAppLoader.slideTop,
+.loadingAnimationPreview.slideTop {
+    animation: slideTop 0.8s forwards;
+}
+
+#webAppLoader.fadeOut,
+.loadingAnimationPreview.fadeOut {
+    animation: fadeOut 0.8s forwards;
+}
+
+#webAppLoader.fadeIn,
+.loadingAnimationPreview.fadeIn {
+    animation-fill-mode: forwards;
+    animation: fadeIn 0.5s;
+}
+
+#webAppLoader.clipFromCenterStart,
+.loadingAnimationPreview.clipFromCenterStart {
+    animation-fill-mode: forwards;
+    animation: clipFromCenterStart 0.8s forwards;
+}
+
+#webAppLoader.clipFromCenterEnd,
+.loadingAnimationPreview.clipFromCenterEnd {
+    animation: clipFromCenterEnd 0.8s forwards;
+}
+
+#webAppLoader.clipLeftRightStart,
+.loadingAnimationPreview.clipLeftRightStart {
+    animation-fill-mode: forwards;
+    animation: clipLeftRightStart 0.8s forwards;
+}
+
+#webAppLoader.clipLeftRightEnd,
+.loadingAnimationPreview.clipLeftRightEnd {
+    animation: clipLeftRightEnd 0.8s forwards;
+}
+
+#webAppLoader.animatedFullSlideTopBottomStart,
+.loadingAnimationPreview.animatedFullSlideTopBottomStart {
+    animation-fill-mode: forwards;
+    animation: animatedFullSlideTopBottomStart 0.8s forwards;
+}
+
+#webAppLoader.animatedFullSlideTopBottomEnd,
+.loadingAnimationPreview.animatedFullSlideTopBottomEnd {
+    animation-fill-mode: forwards;
+    animation: fadeIn 0.8s forwards;
+}
+
+#webAppLoader.animatedFullSlideBottomTopStart,
+.loadingAnimationPreview.animatedFullSlideBottomTopStart {
+    animation: animatedFullSlideBottomTopStart 0.8s forwards;
+}
+
+#webAppLoader.animatedFullSlideBottomTopEnd,
+.loadingAnimationPreview.animatedFullSlideBottomTopEnd {
+    animation-fill-mode: forwards;
+    animation: fadeIn 0.8s forwards;
+}
