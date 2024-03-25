@@ -3,7 +3,7 @@ Contributors: Mahesh Thorat
 Donate Link: https://rzp.io/l/maheshmthorat
 Tags: block editor, classic editor, editor, Gutenberg, formatting, tinymce, write
 Requires at least: 4.5
-Tested up to: 6.0
+Tested up to: 6.4.3
 Stable tag: 0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html

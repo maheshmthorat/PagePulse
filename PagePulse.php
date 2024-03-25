@@ -15,6 +15,7 @@
  * Description: PagePulse adds dynamic loading animations to your WordPress website, keeping visitors engaged during page transitions. Choose from a variety of sleek animations to enhance user experience.
  * Version: 0.1
  * Author: Mahesh Thorat
+ * Text Domain: pagepulse
  * Author URI: https://maheshthorat.web.app
  **/
 
