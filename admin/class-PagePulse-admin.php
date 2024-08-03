@@ -1,4 +1,7 @@
 <?php
+if ((!defined('ABSPATH'))) {
+	die;
+}
 
 /**
  * Class PagePulse
@@ -52,21 +55,21 @@ class PagePulse_Admin
 				$opts['page_background_option'] = 'on';
 			}
 			if (isset($_POST['pageLoadAnimation'])) {
-				$opts['pageLoadAnimation'] = $_POST['pageLoadAnimation'];
+				$opts['pageLoadAnimation'] = isset($_POST['pageLoadAnimation']) ? sanitize_text_field($_POST['pageLoadAnimation']) : '';
 			}
 			if (isset($_POST['loading_icon_option'])) {
 				$opts['loading_icon_option'] = 'on';
 			}
 			if (isset($_POST['page_background_color'])) {
-				$opts['page_background_color'] = sanitize_hex_color($_POST['page_background_color']);
+				$opts['page_background_color'] = isset($_POST['page_background_color']) ? sanitize_hex_color($_POST['page_background_color']) : '';
 			}
 			if (isset($_POST['page_background_opacity'])) {
-				$opts['page_background_opacity'] = $_POST['page_background_opacity'];
+				$opts['page_background_opacity'] = isset($_POST['page_background_opacity']) ? sanitize_text_field($_POST['page_background_opacity']) : '';
 			}
 
 			update_option('_PagePulse', $opts);
 
-			$this->notice = array('success', __('Your settings have been successfully updated.', 'PagePulse'));
+			$this->notice = array('success', __('Your settings have been successfully updated.', 'pagepulse'));
 
 			// Redirect to the settings page with a success status
 			// wp_safe_redirect(admin_url('options-general.php?page=PagePulse-admin') . '&status=updated');
@@ -80,11 +83,11 @@ class PagePulse_Admin
 	public function return_options_page()
 	{
 		$opts = get_option('_PagePulse');
-		$nonce = wp_create_nonce('PagePulse');
+		$nonce = wp_create_nonce('pagepulse');
 
-		if (isset($_GET['con']) && $_GET['con'] == 'about' && wp_verify_nonce($nonce, 'PagePulse')) {
+		if (isset($_GET['con']) && $_GET['con'] == 'about' && wp_verify_nonce($nonce, 'pagepulse')) {
 			$this->return_about_page();
-		} else if (isset($_GET['con']) && $_GET['con'] == 'donate' && wp_verify_nonce($nonce, 'PagePulse')) {
+		} else if (isset($_GET['con']) && $_GET['con'] == 'donate' && wp_verify_nonce($nonce, 'pagepulse')) {
 			$this->return_donate_page();
 		} else {
 ?>
@@ -97,7 +100,7 @@ class PagePulse_Admin
 								<section class="tab-section">
 									<?php if (isset($this->notice) && !empty($this->notice)) { ?>
 										<div class="updated">
-											<p><?php echo esc_attr($this->notice[1], 'PagePulse'); ?> <a href="<?php echo esc_url(get_admin_url() . 'options-general.php?page=PagePulse-admin'); ?>">Hide Notice</a></p>
+											<p><?php echo esc_attr($this->notice[1], 'pagepulse'); ?> <a href="<?php echo esc_url(get_admin_url() . 'options-general.php?page=PagePulse-admin'); ?>">Hide Notice</a></p>
 										</div>
 									<?php } ?>
 									<form method="POST" enctype="multipart/form-data">
@@ -110,7 +113,7 @@ class PagePulse_Admin
 													<th>
 														<h3>
 															<span class="dashicons dashicons-yes-alt"></span>
-															<?php esc_html_e('Turn on PagePulse', 'PagePulse'); ?>
+															<?php esc_html_e('Turn on PagePulse', 'pagepulse'); ?>
 														</h3>
 													</th>
 													<td>
@@ -131,7 +134,7 @@ class PagePulse_Admin
 																<th>
 																	<h3>
 																		<span class="dashicons dashicons-admin-site"></span>
-																		<?php esc_html_e('Select Effect', 'PagePulse'); ?>
+																		<?php esc_html_e('Select Effect', 'pagepulse'); ?>
 																	</h3>
 																</th>
 																<td>
@@ -153,7 +156,7 @@ class PagePulse_Admin
 																<th>
 																	<h3>
 																		<span class="dashicons dashicons-admin-appearance"></span>
-																		<?php esc_html_e('Background Color', 'PagePulse'); ?>
+																		<?php esc_html_e('Background Color', 'pagepulse'); ?>
 																	</h3>
 																</th>
 																<td>
@@ -164,7 +167,7 @@ class PagePulse_Admin
 																<th>
 																	<h3>
 																		<span class="dashicons dashicons-feedback"></span>
-																		<?php esc_html_e('Opacity', 'PagePulse'); ?>
+																		<?php esc_html_e('Opacity', 'pagepulse'); ?>
 																	</h3>
 																</th>
 																<td>
@@ -175,7 +178,7 @@ class PagePulse_Admin
 														</table>
 													</td>
 													<td>
-														<h3><?php echo esc_attr('<Preview/>', 'PagePulse'); ?></h3>
+														<h3><?php echo esc_attr('<Preview/>', 'pagepulse'); ?></h3>
 														<div class="desktop-container">
 															<div class="loadingAnimationPreview"></div>
 															<div style="padding: 10px;">
@@ -189,7 +192,7 @@ class PagePulse_Admin
 											</table>
 											<div class="form-footer">
 												<br>
-												<input type="submit" class="button button-primary button-theme" value="<?php esc_html_e('Update Settings', 'PagePulse'); ?>">
+												<input type="submit" class="button button-primary button-theme" value="<?php esc_html_e('Update Settings', 'pagepulse'); ?>">
 											</div>
 										</div>
 									</form>
@@ -210,9 +213,9 @@ class PagePulse_Admin
 	{
 		$link = admin_url('options-general.php');
 		$list = array(
-			array('tab1', 'PagePulse-admin', 'fa-cogs', __('<span class="dashicons dashicons-admin-tools"></span> Settings', 'PagePulse')),
-			array('tab2', 'PagePulse-admin&con=about', 'fa-info-circle', __('<span class="dashicons dashicons-editor-help"></span> About', 'PagePulse')),
-			// array('tab3', 'PagePulse-admin&con=donate', 'fa-info-circle', __('<span class="dashicons dashicons-money-alt"></span> Donate', 'PagePulse'))
+			array('tab1', 'PagePulse-admin', 'fa-cogs', __('<span class="dashicons dashicons-admin-tools"></span> Settings', 'pagepulse')),
+			array('tab2', 'PagePulse-admin&con=about', 'fa-info-circle', __('<span class="dashicons dashicons-editor-help"></span> About', 'pagepulse')),
+			// array('tab3', 'PagePulse-admin&con=donate', 'fa-info-circle', __('<span class="dashicons dashicons-money-alt"></span> Donate', 'pagepulse'))
 		);
 
 		$menu = null;
@@ -224,7 +227,7 @@ class PagePulse_Admin
 			<h2></h2>
 			<div class="privacy-settings-header">
 				<div class="privacy-settings-title-section">
-						<h1>' . esc_html__(PagePulse_PLUGIN_FULLNAME, 'PagePulse') . '</h1>
+						<h1>PagePulse</h1>
 				</div>
 				<nav class="privacy-settings-tabs-wrapper hide-if-no-js" aria-label="Secondary menu">
 						' . $menu . '

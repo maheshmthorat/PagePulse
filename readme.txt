@@ -1,20 +1,20 @@
 === PagePulse ===
-Contributors: Mahesh Thorat
+Contributors: maheshmthorat
 Donate Link: https://rzp.io/l/maheshmthorat
-Tags: block editor, classic editor, editor, Gutenberg, formatting, tinymce, write
+Tags: page animation, transitions, page load
 Requires at least: 4.5
-Tested up to: 6.4.3
+Tested up to: 6.6
 Stable tag: 0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-PagePulse adds dynamic loading animations to your WordPress website, keeping visitors engaged during page transitions. Choose from a variety of sleek animations to enhance user experience.
+Liven up WordPress page loads! Choose stylish animations to keep visitors engaged during transitions. ✨
 
 == Description ==
 
 PagePulse is a powerful WordPress plugin designed to elevate your website's user experience by introducing captivating loading animations. When users navigate between pages or elements, PagePulse steps in with a selection of smooth and engaging animations, maintaining visitor interest while content loads seamlessly.
 
-== PLUGIN FEATURES ==
+== Plugin Features ==
 - Choose from an array of modern loading animations that align with your website's style.
 - Effortlessly integrate loading animations into various page transitions, ensuring a consistent and engaging experience.
 - Enhance user engagement by preventing potential frustration during content loading intervals.
@@ -27,16 +27,29 @@ Upgrade your website's loading experience with PagePulse and make waiting for co
 
 Feel free to customize and modify these descriptions to accurately represent the features and benefits of your PagePulse plugin.
 
+== Instructions ==
+
+1. Navigate to Settings > PagePulse.
+2. Turn on PagePulse by selecting the Turn On checkbox.
+3. Choose an effect that you would like to add to your site pages.
+4. Configure additional settings such as Background Color and Opacity.
+5. Once configured, you can preview the changes and experience them on the frontend.
+
 == Installation ==
 
-1. Upload `tinymce-extended` to the `/wp-content/plugins/` directory
+= Using plugins page =
+1. Go to Plugins -> Add New and search for PagePulse.
+2. Activate the plugin through the "Plugins" screen in WordPress.
+3. Click the `PagePulse` link located in "Settings" menu to configure the plugin options
+
+= Using Manual File System =
+1. Upload `pagepulse.zip` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Click the `PagePulse` link located under your `Settings` section to configure the plugin options
+3. Click the `PagePulse` link located in "Settings" menu to configure the plugin options
 
 == Screenshots ==
 
 1. A general view of the plugin "options" page.
-2. Here you can actually see the console is blocked from being used.
 
 == Changelog ==
 
